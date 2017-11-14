@@ -1,0 +1,38 @@
+
+**** Build of configuration Release for project obsluga_klawiszy_chuj ****
+
+make all 
+Building target: obsluga_klawiszy_chuj.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,obsluga_klawiszy_chuj.map -mmcu=atmega16 -o "obsluga_klawiszy_chuj.elf"  ./main.o   
+Finished building target: obsluga_klawiszy_chuj.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S obsluga_klawiszy_chuj.elf  >"obsluga_klawiszy_chuj.lss"
+Finished building: obsluga_klawiszy_chuj.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -O ihex obsluga_klawiszy_chuj.elf  "obsluga_klawiszy_chuj.hex"
+Finished building: obsluga_klawiszy_chuj.hex
+ 
+Create eeprom image (ihex format)
+avr-objcopy -j .eeprom --no-change-warnings --change-section-lma .eeprom=0 -O ihex obsluga_klawiszy_chuj.elf  "obsluga_klawiszy_chuj.eep"
+Finished building: obsluga_klawiszy_chuj.eep
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega16 obsluga_klawiszy_chuj.elf
+AVR Memory Usage
+----------------
+Device: atmega16
+
+Program:     170 bytes (1.0% Full)
+(.text + .data + .bootloader)
+
+Data:          0 bytes (0.0% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+**** Build Finished ****

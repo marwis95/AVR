@@ -1,0 +1,48 @@
+
+**** Build of configuration Release for project aku ****
+
+make all 
+Building file: ../main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega8 -DF_CPU=1000000UL -MMD -MP -MF"main.d" -MT"main.d" -c -o"main.o" "../main.c"
+../main.c:14:6: warning: return type of ‘main’ is not ‘int’
+../main.c: In function ‘main’:
+../main.c:34:7: warning: implicit declaration of function ‘sprintf’
+../main.c:34:7: warning: incompatible implicit declaration of built-in function ‘sprintf’
+../main.c:34:7: warning: format ‘%1.1f’ expects type ‘double’, but argument 3 has type ‘float’
+../main.c:36:7: warning: statement with no effect
+Finished building: ../main.c
+ 
+../main.c:48:20: warning: format ‘%1.1f’ expects type ‘double’, but argument 3 has type ‘float’
+Building target: aku.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,aku.map -Wl,-u,vfprintf -mmcu=atmega8 -o"aku.elf"  ./HD44780.o ./main.o   -lprintf_flt -lm
+Finished building target: aku.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S aku.elf  >"aku.lss"
+Finished building: aku.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -O ihex aku.elf  "aku.hex"
+Finished building: aku.hex
+ 
+Create eeprom image (ihex format)
+avr-objcopy -j .eeprom --no-change-warnings --change-section-lma .eeprom=0 -O ihex aku.elf  "aku.eep"
+Finished building: aku.eep
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega8 aku.elf
+AVR Memory Usage
+----------------
+Device: atmega8
+
+Program:    4822 bytes (58.9% Full)
+(.text + .data + .bootloader)
+
+Data:         58 bytes (5.7% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 

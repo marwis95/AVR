@@ -1,0 +1,43 @@
+
+**** Build of configuration Release for project hd ****
+
+make all 
+Building file: ../main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=8000000UL -MMD -MP -MF"main.d" -MT"main.d" -c -o "main.o" "../main.c"
+Finished building: ../main.c
+ 
+Building target: hd.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,hd.map -mmcu=atmega16 -o "hd.elf"  ./hd44780.o ./main.o   
+Finished building target: hd.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S hd.elf  >"hd.lss"
+Finished building: hd.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -O ihex hd.elf  "hd.hex"
+Finished building: hd.hex
+ 
+Create eeprom image (ihex format)
+avr-objcopy -j .eeprom --no-change-warnings --change-section-lma .eeprom=0 -O ihex hd.elf  "hd.eep"
+Finished building: hd.eep
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega16 hd.elf
+AVR Memory Usage
+----------------
+Device: atmega16
+
+Program:     526 bytes (3.2% Full)
+(.text + .data + .bootloader)
+
+Data:         36 bytes (3.5% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+**** Build Finished ****

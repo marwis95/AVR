@@ -1,0 +1,19 @@
+
+**** Build of configuration Release for project termometr ****
+
+make all 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 termometr.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:    1626 bytes (5.0% Full)
+(.text + .data + .bootloader)
+
+Data:         36 bytes (1.8% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 

@@ -1,0 +1,41 @@
+
+**** Build of configuration Release for project Liquid_Cristal ****
+
+make all 
+Building file: ../main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=1000000UL -MMD -MP -MF"main.d" -MT"main.d" -c -o"main.o" "../main.c"
+Finished building: ../main.c
+ 
+Building target: Liquid_Cristal.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,Liquid_Cristal.map -mmcu=atmega32 -o"Liquid_Cristal.elf"  ./hd44780.o ./main.o   
+Finished building target: Liquid_Cristal.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S Liquid_Cristal.elf  >"Liquid_Cristal.lss"
+Finished building: Liquid_Cristal.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -O ihex Liquid_Cristal.elf  "Liquid_Cristal.hex"
+Finished building: Liquid_Cristal.hex
+ 
+Create eeprom image (ihex format)
+avr-objcopy -j .eeprom --no-change-warnings --change-section-lma .eeprom=0 -O ihex Liquid_Cristal.elf  "Liquid_Cristal.eep"
+Finished building: Liquid_Cristal.eep
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 Liquid_Cristal.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:     486 bytes (1.5% Full)
+(.text + .data + .bootloader)
+
+Data:          8 bytes (0.4% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 

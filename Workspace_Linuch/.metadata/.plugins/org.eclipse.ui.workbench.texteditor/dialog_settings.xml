@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
+		<item value="305" key="DIALOG_WIDTH"/>
+		<item value="127" key="DIALOG_Y_ORIGIN"/>
+		<item value="418" key="DIALOG_HEIGHT"/>
+		<item value="1234" key="DIALOG_X_ORIGIN"/>
+		<item value="1|Sans|10.0|0|GTK|1|" key="DIALOG_FONT_NAME"/>
+	</section>
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
+		<item value="true" key="wrap"/>
+		<item value="false" key="isRegEx"/>
+		<item value="false" key="casesensitive"/>
+		<item value="false" key="incremental"/>
+		<item value="false" key="wholeword"/>
+		<item value="SET_IN_ONEWIRE_DDR_2" key="selection"/>
+		<list key="findhistory">
+			<item value="SET_IN_ONEWIRE_DDR"/>
+			<item value="SET_OUT_ONEWIRE_DDR"/>
+			<item value="IS_SET_ONEWIRE_PIN"/>
+			<item value="CLR_ONEWIRE_PORT"/>
+			<item value="SET_ONEWIRE_PORT"/>
+			<item value="ds18"/>
+			<item value="temp"/>
+			<item value="PORTA"/>
+		</list>
+		<list key="replacehistory">
+			<item value="SET_IN_ONEWIRE_DDR_2"/>
+			<item value="SET_OUT_ONEWIRE_DDR_2"/>
+			<item value="IS_SET_ONEWIRE_PIN_2"/>
+			<item value="CLR_ONEWIRE_PORT_2"/>
+			<item value="SET_ONEWIRE_PORT_2"/>
+			<item value="temp_pt"/>
+			<item value="PORTD"/>
+			<item value="DDRD"/>
+		</list>
+	</section>
+</section>

@@ -1,0 +1,38 @@
+
+**** Build of configuration Release for project 7seg ****
+
+make all 
+Building target: 7seg.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,7seg.map -mmcu=atmega16 -o "7seg.elf"  ./font.o ./main.o   
+Finished building target: 7seg.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S 7seg.elf  >"7seg.lss"
+Finished building: 7seg.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -O ihex 7seg.elf  "7seg.hex"
+Finished building: 7seg.hex
+ 
+Create eeprom image (ihex format)
+avr-objcopy -j .eeprom --no-change-warnings --change-section-lma .eeprom=0 -O ihex 7seg.elf  "7seg.eep"
+Finished building: 7seg.eep
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega16 7seg.elf
+AVR Memory Usage
+----------------
+Device: atmega16
+
+Program:     340 bytes (2.1% Full)
+(.text + .data + .bootloader)
+
+Data:         10 bytes (1.0% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+**** Build Finished ****

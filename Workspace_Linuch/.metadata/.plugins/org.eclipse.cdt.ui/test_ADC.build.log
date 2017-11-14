@@ -1,0 +1,19 @@
+
+**** Build of configuration Release for project test_ADC ****
+
+make all 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega8 test_ADC.elf
+AVR Memory Usage
+----------------
+Device: atmega8
+
+Program:     418 bytes (5.1% Full)
+(.text + .data + .bootloader)
+
+Data:         12 bytes (1.2% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 

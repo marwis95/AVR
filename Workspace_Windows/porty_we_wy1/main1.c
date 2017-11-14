@@ -1,0 +1,32 @@
+/*
+ * main.c
+ *
+ *  Created on: 03-06-2013
+ *      Author: Marwis95
+ */
+
+
+/* przyk³ad 2.1 "leds.c" */
+/* 8 diod LED prz³¹czonych do portu D */
+/* ATmega 1MHz */
+
+#define F_CPU 1000000L
+#include <avr/io.h>
+#include <util/delay.h>
+
+int main(void)
+{
+   /* Wszystkie linie portu D bêd¹ wyjœciami */
+   DDRD = 0xFF;  /* 0xFF binarnie 1111 1111 */
+
+   /* Pocz¹tek nieskoñczonej pêtli */
+   while(1)
+   {
+      PORTD = 0xaa;    /* 0xaa binarnie 1010 1010 */
+      /* opóŸnienie 3 sek. */
+      _delay_ms(3000);
+       PORTD = 0x55;    /* 0x55 binarnie 0101 0101 */
+      /* opóŸnienie 3 sek. */
+      _delay_ms(3000);
+   }
+}

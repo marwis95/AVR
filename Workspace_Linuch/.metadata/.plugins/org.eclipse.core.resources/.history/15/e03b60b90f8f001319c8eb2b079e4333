@@ -1,0 +1,20 @@
+/*
+ * main.c
+ *
+ *  Created on: 06-02-2014
+ *      Author: root
+ */
+
+#include <avr/io.h>
+#include <util/delay.h>
+#include "HD44780.h"
+
+
+void main(void){
+
+	LCD_Initalize();
+	LCD_GoTo(0, 0);
+	LCD_WriteText("TEST");
+
+
+}

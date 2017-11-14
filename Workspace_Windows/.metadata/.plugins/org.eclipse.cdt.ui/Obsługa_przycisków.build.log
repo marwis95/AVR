@@ -1,0 +1,21 @@
+
+**** Build of configuration Release for project Obs³uga_przycisków ****
+
+make all 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega16 Obs³uga_przycisków.elf
+AVR Memory Usage
+----------------
+Device: atmega16
+
+Program:     174 bytes (1.1% Full)
+(.text + .data + .bootloader)
+
+Data:          0 bytes (0.0% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+**** Build Finished ****

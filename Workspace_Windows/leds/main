@@ -1,0 +1,25 @@
+/* przyk³ad 2.1 "leds.c" */
+/* 8 diod LED prz³¹czonych do portu D */
+/* ATmega 1MHz */
+
+#define F_CPU 1000000L
+#include <avr/io.h>
+#include <util/delay.h>
+
+int main(void)
+{   
+   
+   DDRA = 0xFF; 
+   DDRB = 0xFF; 
+   DDRC = 0xFF; 
+   DDRD = 0xFF; 
+
+   /* Pocz¹tek nieskoñczonej pêtli */
+   while(1)
+   {
+	PORTA=0xFF;
+	PORTB=0xFF;
+	PORTC=0xFF;
+	PORTD=0xFF;
+   }
+}

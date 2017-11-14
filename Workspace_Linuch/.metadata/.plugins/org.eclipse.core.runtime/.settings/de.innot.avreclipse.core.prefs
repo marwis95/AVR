@@ -1,0 +1,18 @@
+#Mon Dec 02 09:14:46 CET 2013
+avrdude/configs/programmerconfig.1/ppresetline=
+avrdudepropertypage/previewexpanded=false
+avrpaths//systempath/AVRDUDE=/usr/bin
+avrdude/configs/programmerconfig.1/baudrate=
+avrdudepropertypage/weight_preview_expanded=20
+avrdude/configs/programmerconfig.1/ppvccline=
+avrdude/configs/programmerconfig.1/name=USP_ASP
+avrdudepropertypage/weight_preview_collapsed=50
+avrdudepropertypage/weight_top_expanded=80
+avrdudepropertypage/weight_top_collapsed=950
+avrpaths//systempath/AVRGCC=/usr/bin
+avrdude/configs/programmerconfig.1/port=/dev/ttyUSBx
+avrdude/configs/programmerconfig.1/programmer=usbasp
+avrdude/configs/programmerconfig.1/description=Default AVRDude Programmer Configuration. Modify as required for your setup.
+eclipse.preferences.version=1
+avrpaths//systempath/MAKE=/usr/bin
+avrdude/configs/programmerconfig.1/postAvrdudeDelayMs=

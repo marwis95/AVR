@@ -1,0 +1,19 @@
+
+**** Build of configuration Release for project at8_led ****
+
+make all 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega8 at8_led.elf
+AVR Memory Usage
+----------------
+Device: atmega8
+
+Program:    6412 bytes (78.3% Full)
+(.text + .data + .bootloader)
+
+Data:        224 bytes (21.9% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 

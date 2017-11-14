@@ -1,0 +1,37 @@
+/*
+ * main.c
+ *
+ *  Created on: 06-02-2014
+ *      Author: root
+ */
+
+#include <avr/io.h>
+#include <util/delay.h>
+#include "HD44780.h"
+#define ADCIN PC5
+#define VREF 5.0
+
+void main(void){
+	char wynik[4];//bufor
+	float adc;
+
+	LCD_Initalize();
+	LCD_GoTo(0, 0);
+	LCD_WriteText("TEST");
+
+	ADCSRA = (1<<ADEN) | (1<<ADPS2); //Init + presc
+	ADMUX  =    (1<<REFS0) | (1<<MUX2) | (1<<MUX0);  //kanal + v (5.0)
+	DDRC &=~ (1<<PC5);
+
+	for(;;){
+	     ADCSRA |= (1<<ADSC);//ADSC: Uruchomienie pojedynczej konwersji
+	     while(ADCSRA & (1<<ADSC)); //czeka na zakończenie konwersji
+
+	     adc=ADC*VREF/256;
+	     sprintf(wynik,"U=%1.3f [V]",adc);
+	     LCD_GoTo(3, 1);
+	     LCD_WriteText(wynik);
+	     _delay_ms(500);
+	}
+
+}

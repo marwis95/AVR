@@ -1,0 +1,77 @@
+/*
+ * main.c
+ *
+ *  Created on: 23-07-2013
+ *      Author: unborn
+ */
+#include <avr/io.h>
+#include <util/delay.h>
+#include <inttypes.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include "hd44780/HD44780.h"
+
+#define ECHO_PORT PORTA
+#define ECHO_READ PINA
+#define ECHO_DDR DDRA
+#define ECHO_PIN 1
+
+#define TRIG_PORT PORTA
+#define TRIG_DDR DDRA
+#define TRIG_PIN 0
+
+void init(void)
+{
+	TRIG_DDR |= (1<<TRIG_PIN);
+	ECHO_DDR &= ~(1<<ECHO_PIN);
+
+	TRIG_PORT &= ~(1<<TRIG_PIN);
+	ECHO_PORT &= ~(1<<ECHO_PIN);
+
+
+}
+void out(unsigned char c)
+{
+	unsigned char buffer[2] = {c, '\0'};
+	LCD_WriteText(buffer);
+}
+int main(void)
+{
+
+	FILE usart_streaam = FDEV_SETUP_STREAM(out,NULL,  _FDEV_SETUP_WRITE);
+	stdout = &usart_streaam;
+
+	init();
+	PORTA = 0x00;
+
+
+	LCD_Initalize();
+	LCD_Home();
+	LCD_WriteText("Jebac ciapatych");
+
+	//Boom
+	TRIG_PORT |= (1<<TRIG_PIN);
+	_delay_us(10);
+	TRIG_PORT &= ~(1<<TRIG_PIN);
+	//Kaboom
+
+	int pomiar = 0;
+	while(!(ECHO_READ & (1<<ECHO_PIN)) );
+
+	LCD_Clear();
+	LCD_Home();
+	LCD_WriteText("Chuj w dupe");
+	printf("LOl");
+
+
+
+
+
+
+
+	for(;;);
+
+
+	return 0;
+}
+

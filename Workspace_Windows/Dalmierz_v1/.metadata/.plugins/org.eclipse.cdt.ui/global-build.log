@@ -1,0 +1,44 @@
+11:32:44 **** Incremental Build of configuration Release for project Dalmierz_v1 ****
+make all 
+Building file: ../main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=8000000UL -MMD -MP -MF"main.d" -MT"main.d" -c -o "main.o" "../main.c"
+../main.c: In function 'out':
+../main.c:40: warning: pointer targets in passing argument 1 of 'LCD_WriteText' differ in signedness
+../main.c: In function 'main':
+../main.c:81: warning: initialization from incompatible pointer type
+../main.c:105: warning: format '%i' expects type 'int', but argument 2 has type 'long unsigned int'
+Finished building: ../main.c
+ 
+Building target: Dalmierz_v1.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,Dalmierz_v1.map -mmcu=atmega16 -o "Dalmierz_v1.elf"  ./hd44780/HD44780.o  ./main.o   
+Finished building target: Dalmierz_v1.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S Dalmierz_v1.elf  >"Dalmierz_v1.lss"
+Finished building: Dalmierz_v1.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -O ihex Dalmierz_v1.elf  "Dalmierz_v1.hex"
+Finished building: Dalmierz_v1.hex
+ 
+Create eeprom image (ihex format)
+avr-objcopy -j .eeprom --no-change-warnings --change-section-lma .eeprom=0 -O ihex Dalmierz_v1.elf  "Dalmierz_v1.eep"
+Finished building: Dalmierz_v1.eep
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega16 Dalmierz_v1.elf
+AVR Memory Usage
+----------------
+Device: atmega16
+
+Program:    2376 bytes (14.5% Full)
+(.text + .data + .bootloader)
+
+Data:         34 bytes (3.3% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 

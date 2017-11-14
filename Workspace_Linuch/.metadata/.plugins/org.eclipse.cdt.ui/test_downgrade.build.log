@@ -1,0 +1,19 @@
+
+**** Build of configuration Release for project test_downgrade ****
+
+make all 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 test_downgrade.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:     132 bytes (0.4% Full)
+(.text + .data + .bootloader)
+
+Data:          0 bytes (0.0% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 

@@ -1,0 +1,13 @@
+
+**** Build of configuration Release for project termometr_po_mojemu ****
+
+make all 
+Building file: ../main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=1000000UL -MMD -MP -MF"main.d" -MT"main.d" -c -o"main.o" "../main.c"
+In file included from ../main.c:2:0:
+/usr/lib/gcc/avr/4.5.3/../../../avr/include/util/delay.h: In function ‘delay_us’:
+/usr/lib/gcc/avr/4.5.3/../../../avr/include/util/delay.h:230:28: error: __builtin_avr_delay_cycles expects an integer constant.
+/usr/lib/gcc/avr/4.5.3/../../../avr/include/util/delay.h: In function ‘delay_ms’:
+/usr/lib/gcc/avr/4.5.3/../../../avr/include/util/delay.h:153:28: error: __builtin_avr_delay_cycles expects an integer constant.
+make: *** [main.o] Błąd 1

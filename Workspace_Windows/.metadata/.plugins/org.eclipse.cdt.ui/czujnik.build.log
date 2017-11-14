@@ -1,0 +1,30 @@
+
+**** Build of configuration Release for project czujnik ****
+
+make all 
+Building file: ../main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"main.d" -MT"main.d" -c -o "main.o" "../main.c"
+../main.c: In function 'main':
+../main.c:35: warning: implicit declaration of function 'lcd_init'
+../main.c:44: warning: implicit declaration of function 'lcd_cls'
+../main.c:49: warning: implicit declaration of function 'lcd_locate'
+../main.c:50: warning: implicit declaration of function 'lcd_int'
+Finished building: ../main.c
+ 
+Building target: czujnik.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,czujnik.map -mmcu=atmega16 -o "czujnik.elf"  ./HD44780.o ./main.o   
+./main.o: In function `main':
+main.c:(.text+0x7e): undefined reference to `lcd_init'
+main.c:(.text+0x96): undefined reference to `lcd_cls'
+main.c:(.text+0xc0): undefined reference to `lcd_locate'
+main.c:(.text+0xca): undefined reference to `lcd_int'
+main.c:(.text+0xd6): undefined reference to `lcd_locate'
+main.c:(.text+0xe2): undefined reference to `lcd_int'
+main.c:(.text+0xee): undefined reference to `lcd_locate'
+main.c:(.text+0xfa): undefined reference to `lcd_int'
+main.c:(.text+0x10c): undefined reference to `lcd_cls'
+make: *** [czujnik.elf] Error 1
+
+**** Build Finished ****

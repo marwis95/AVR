@@ -1,0 +1,15 @@
+
+**** Build of configuration Release for project czujnik9 ****
+
+make all 
+Building file: ../main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=8000000UL -MMD -MP -MF"main.d" -MT"main.d" -c -o "main.o" "../main.c"
+../main.c: In function 'main':
+../main.c:5: error: 'DDRB' undeclared (first use in this function)
+../main.c:5: error: (Each undeclared identifier is reported only once
+../main.c:5: error: for each function it appears in.)
+../main.c:6: error: 'PORTB' undeclared (first use in this function)
+make: *** [main.o] Error 1
+
+**** Build Finished ****

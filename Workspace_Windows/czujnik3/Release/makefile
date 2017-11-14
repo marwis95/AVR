@@ -1,0 +1,90 @@
+################################################################################
+# Automatically-generated file. Do not edit!
+################################################################################
+
+-include ../makefile.init
+
+RM := rm -rf
+
+# All of the sources participating in the build are defined here
+-include sources.mk
+-include subdir.mk
+-include objects.mk
+
+ifneq ($(MAKECMDGOALS),clean)
+ifneq ($(strip $(C_DEPS)),)
+-include $(C_DEPS)
+endif
+ifneq ($(strip $(ASM_DEPS)),)
+-include $(ASM_DEPS)
+endif
+ifneq ($(strip $(S_DEPS)),)
+-include $(S_DEPS)
+endif
+ifneq ($(strip $(S_UPPER_DEPS)),)
+-include $(S_UPPER_DEPS)
+endif
+endif
+
+-include ../makefile.defs
+
+# Add inputs and outputs from these tool invocations to the build variables 
+LSS += \
+czujnik3.lss \
+
+FLASH_IMAGE += \
+czujnik3.hex \
+
+EEPROM_IMAGE += \
+czujnik3.eep \
+
+SIZEDUMMY += \
+sizedummy \
+
+
+# All Target
+all: czujnik3.elf secondary-outputs
+
+# Tool invocations
+czujnik3.elf: $(OBJS) $(USER_OBJS)
+	@echo 'Building target: $@'
+	@echo 'Invoking: AVR C Linker'
+	avr-gcc -Wl,-Map,czujnik3.map -mmcu=atmega16 -o "czujnik3.elf" $(OBJS) $(USER_OBJS) $(LIBS)
+	@echo 'Finished building target: $@'
+	@echo ' '
+
+czujnik3.lss: czujnik3.elf
+	@echo 'Invoking: AVR Create Extended Listing'
+	-avr-objdump -h -S czujnik3.elf  >"czujnik3.lss"
+	@echo 'Finished building: $@'
+	@echo ' '
+
+czujnik3.hex: czujnik3.elf
+	@echo 'Create Flash image (ihex format)'
+	-avr-objcopy -R .eeprom -O ihex czujnik3.elf  "czujnik3.hex"
+	@echo 'Finished building: $@'
+	@echo ' '
+
+czujnik3.eep: czujnik3.elf
+	@echo 'Create eeprom image (ihex format)'
+	-avr-objcopy -j .eeprom --no-change-warnings --change-section-lma .eeprom=0 -O ihex czujnik3.elf  "czujnik3.eep"
+	@echo 'Finished building: $@'
+	@echo ' '
+
+sizedummy: czujnik3.elf
+	@echo 'Invoking: Print Size'
+	-avr-size --format=avr --mcu=atmega16 czujnik3.elf
+	@echo 'Finished building: $@'
+	@echo ' '
+
+# Other Targets
+clean:
+	-$(RM) $(OBJS)$(C_DEPS)$(ASM_DEPS)$(EEPROM_IMAGE)$(FLASH_IMAGE)$(ELFS)$(LSS)$(S_DEPS)$(SIZEDUMMY)$(S_UPPER_DEPS) czujnik3.elf
+	-@echo ' '
+
+secondary-outputs: $(LSS) $(FLASH_IMAGE) $(EEPROM_IMAGE) $(SIZEDUMMY)
+
+.PHONY: all clean dependents
+.SECONDARY:
+
+-include ../makefile.targets

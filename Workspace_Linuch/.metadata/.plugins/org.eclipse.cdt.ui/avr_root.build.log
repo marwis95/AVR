@@ -1,0 +1,41 @@
+
+**** Build of configuration Release for project avr_root ****
+
+make all 
+Building file: ../main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega32 -DF_CPU=1000000UL -MMD -MP -MF"main.d" -MT"main.d" -c -o"main.o" "../main.c"
+Finished building: ../main.c
+ 
+Building target: avr_root.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,avr_root.map -mmcu=atmega32 -o"avr_root.elf"  ./main.o   
+Finished building target: avr_root.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S avr_root.elf  >"avr_root.lss"
+Finished building: avr_root.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -O ihex avr_root.elf  "avr_root.hex"
+Finished building: avr_root.hex
+ 
+Create eeprom image (ihex format)
+avr-objcopy -j .eeprom --no-change-warnings --change-section-lma .eeprom=0 -O ihex avr_root.elf  "avr_root.eep"
+Finished building: avr_root.eep
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega32 avr_root.elf
+AVR Memory Usage
+----------------
+Device: atmega32
+
+Program:     118 bytes (0.4% Full)
+(.text + .data + .bootloader)
+
+Data:          0 bytes (0.0% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 

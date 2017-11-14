@@ -1,0 +1,45 @@
+
+**** Build of configuration Release for project lcdfun ****
+
+make all 
+Building file: ../main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=8000000UL -MMD -MP -MF"main.d" -MT"main.d" -c -o "main.o" "../main.c"
+../main.c: In function 'main':
+../main.c:20: warning: unused variable 'i'
+Finished building: ../main.c
+ 
+Building target: lcdfun.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,lcdfun.map -mmcu=atmega16 -o "lcdfun.elf"  ./font.o ./main.o   
+Finished building target: lcdfun.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S lcdfun.elf  >"lcdfun.lss"
+Finished building: lcdfun.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -O ihex lcdfun.elf  "lcdfun.hex"
+Finished building: lcdfun.hex
+ 
+Create eeprom image (ihex format)
+avr-objcopy -j .eeprom --no-change-warnings --change-section-lma .eeprom=0 -O ihex lcdfun.elf  "lcdfun.eep"
+Finished building: lcdfun.eep
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega16 lcdfun.elf
+AVR Memory Usage
+----------------
+Device: atmega16
+
+Program:     280 bytes (1.7% Full)
+(.text + .data + .bootloader)
+
+Data:         10 bytes (1.0% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+**** Build Finished ****

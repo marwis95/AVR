@@ -1,0 +1,43 @@
+
+**** Build of configuration Release for project buttons ****
+
+make all 
+Building file: ../main.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=8000000UL -MMD -MP -MF"main.d" -MT"main.d" -c -o "main.o" "../main.c"
+Finished building: ../main.c
+ 
+Building target: buttons.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,buttons.map -mmcu=atmega16 -o "buttons.elf"  ./main.o   
+Finished building target: buttons.elf
+ 
+Invoking: AVR Create Extended Listing
+avr-objdump -h -S buttons.elf  >"buttons.lss"
+Finished building: buttons.lss
+ 
+Create Flash image (ihex format)
+avr-objcopy -R .eeprom -O ihex buttons.elf  "buttons.hex"
+Finished building: buttons.hex
+ 
+Create eeprom image (ihex format)
+avr-objcopy -j .eeprom --no-change-warnings --change-section-lma .eeprom=0 -O ihex buttons.elf  "buttons.eep"
+Finished building: buttons.eep
+ 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega16 buttons.elf
+AVR Memory Usage
+----------------
+Device: atmega16
+
+Program:     170 bytes (1.0% Full)
+(.text + .data + .bootloader)
+
+Data:          0 bytes (0.0% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+**** Build Finished ****

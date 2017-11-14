@@ -1,0 +1,67 @@
+
+**** Build of configuration Release for project czujka ****
+
+make all 
+Building file: ../hd44780.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=1000000UL -MMD -MP -MF"hd44780.d" -MT"hd44780.d" -c -o "hd44780.o" "../hd44780.c"
+../hd44780.c:13:21: error: HD44780.h: No such file or directory
+../hd44780.c: In function '_LCD_OutNibble':
+../hd44780.c:22: error: 'LCD_DB4_PORT' undeclared (first use in this function)
+../hd44780.c:22: error: (Each undeclared identifier is reported only once
+../hd44780.c:22: error: for each function it appears in.)
+../hd44780.c:22: error: 'LCD_DB4' undeclared (first use in this function)
+../hd44780.c:27: error: 'LCD_DB5_PORT' undeclared (first use in this function)
+../hd44780.c:27: error: 'LCD_DB5' undeclared (first use in this function)
+../hd44780.c:32: error: 'LCD_DB6_PORT' undeclared (first use in this function)
+../hd44780.c:32: error: 'LCD_DB6' undeclared (first use in this function)
+../hd44780.c:37: error: 'LCD_DB7_PORT' undeclared (first use in this function)
+../hd44780.c:37: error: 'LCD_DB7' undeclared (first use in this function)
+../hd44780.c: In function '_LCD_Write':
+../hd44780.c:48: error: 'LCD_E_PORT' undeclared (first use in this function)
+../hd44780.c:48: error: 'LCD_E' undeclared (first use in this function)
+../hd44780.c:54: warning: implicit declaration of function '_delay_us'
+../hd44780.c: In function 'LCD_WriteCommand':
+../hd44780.c:63: error: 'LCD_RS_PORT' undeclared (first use in this function)
+../hd44780.c:63: error: 'LCD_RS' undeclared (first use in this function)
+../hd44780.c: In function 'LCD_WriteData':
+../hd44780.c:73: error: 'LCD_RS_PORT' undeclared (first use in this function)
+../hd44780.c:73: error: 'LCD_RS' undeclared (first use in this function)
+../hd44780.c: In function 'LCD_GoTo':
+../hd44780.c:93: error: 'HD44780_DDRAM_SET' undeclared (first use in this function)
+../hd44780.c: In function 'LCD_Clear':
+../hd44780.c:102: error: 'HD44780_CLEAR' undeclared (first use in this function)
+../hd44780.c:103: warning: implicit declaration of function '_delay_ms'
+../hd44780.c: In function 'LCD_Home':
+../hd44780.c:112: error: 'HD44780_HOME' undeclared (first use in this function)
+../hd44780.c: In function 'LCD_Initalize':
+../hd44780.c:123: error: 'LCD_DB4_DIR' undeclared (first use in this function)
+../hd44780.c:123: error: 'LCD_DB4' undeclared (first use in this function)
+../hd44780.c:124: error: 'LCD_DB5_DIR' undeclared (first use in this function)
+../hd44780.c:124: error: 'LCD_DB5' undeclared (first use in this function)
+../hd44780.c:125: error: 'LCD_DB6_DIR' undeclared (first use in this function)
+../hd44780.c:125: error: 'LCD_DB6' undeclared (first use in this function)
+../hd44780.c:126: error: 'LCD_DB7_DIR' undeclared (first use in this function)
+../hd44780.c:126: error: 'LCD_DB7' undeclared (first use in this function)
+../hd44780.c:127: error: 'LCD_E_DIR' undeclared (first use in this function)
+../hd44780.c:127: error: 'LCD_E' undeclared (first use in this function)
+../hd44780.c:128: error: 'LCD_RS_DIR' undeclared (first use in this function)
+../hd44780.c:128: error: 'LCD_RS' undeclared (first use in this function)
+../hd44780.c:130: error: 'LCD_RS_PORT' undeclared (first use in this function)
+../hd44780.c:131: error: 'LCD_E_PORT' undeclared (first use in this function)
+../hd44780.c:146: error: 'HD44780_FUNCTION_SET' undeclared (first use in this function)
+../hd44780.c:146: error: 'HD44780_FONT5x7' undeclared (first use in this function)
+../hd44780.c:146: error: 'HD44780_TWO_LINE' undeclared (first use in this function)
+../hd44780.c:146: error: 'HD44780_4_BIT' undeclared (first use in this function)
+../hd44780.c:147: error: 'HD44780_DISPLAY_ONOFF' undeclared (first use in this function)
+../hd44780.c:147: error: 'HD44780_DISPLAY_OFF' undeclared (first use in this function)
+../hd44780.c:148: error: 'HD44780_CLEAR' undeclared (first use in this function)
+../hd44780.c:150: error: 'HD44780_ENTRY_MODE' undeclared (first use in this function)
+../hd44780.c:150: error: 'HD44780_EM_SHIFT_CURSOR' undeclared (first use in this function)
+../hd44780.c:150: error: 'HD44780_EM_INCREMENT' undeclared (first use in this function)
+../hd44780.c:151: error: 'HD44780_DISPLAY_ON' undeclared (first use in this function)
+../hd44780.c:151: error: 'HD44780_CURSOR_OFF' undeclared (first use in this function)
+../hd44780.c:151: error: 'HD44780_CURSOR_NOBLINK' undeclared (first use in this function)
+make: *** [hd44780.o] Error 1
+
+**** Build Finished ****

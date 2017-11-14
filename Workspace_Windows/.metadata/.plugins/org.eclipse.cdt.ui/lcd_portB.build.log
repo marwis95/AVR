@@ -1,0 +1,21 @@
+
+**** Build of configuration Release for project lcd_portB ****
+
+make all 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega16 lcd_portB.elf
+AVR Memory Usage
+----------------
+Device: atmega16
+
+Program:     526 bytes (3.2% Full)
+(.text + .data + .bootloader)
+
+Data:         36 bytes (3.5% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+**** Build Finished ****

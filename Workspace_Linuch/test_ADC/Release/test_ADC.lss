@@ -1,0 +1,250 @@
+
+test_ADC.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         00000196  00000000  00000000  00000074  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .data         0000000c  00800060  00000196  0000020a  2**0
+                  CONTENTS, ALLOC, LOAD, DATA
+  2 .stab         000006cc  00000000  00000000  00000218  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  3 .stabstr      00000054  00000000  00000000  000008e4  2**0
+                  CONTENTS, READONLY, DEBUGGING
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	12 c0       	rjmp	.+36     	; 0x26 <__ctors_end>
+   2:	24 c0       	rjmp	.+72     	; 0x4c <__bad_interrupt>
+   4:	23 c0       	rjmp	.+70     	; 0x4c <__bad_interrupt>
+   6:	22 c0       	rjmp	.+68     	; 0x4c <__bad_interrupt>
+   8:	21 c0       	rjmp	.+66     	; 0x4c <__bad_interrupt>
+   a:	20 c0       	rjmp	.+64     	; 0x4c <__bad_interrupt>
+   c:	1f c0       	rjmp	.+62     	; 0x4c <__bad_interrupt>
+   e:	1e c0       	rjmp	.+60     	; 0x4c <__bad_interrupt>
+  10:	1d c0       	rjmp	.+58     	; 0x4c <__bad_interrupt>
+  12:	1c c0       	rjmp	.+56     	; 0x4c <__bad_interrupt>
+  14:	1b c0       	rjmp	.+54     	; 0x4c <__bad_interrupt>
+  16:	1a c0       	rjmp	.+52     	; 0x4c <__bad_interrupt>
+  18:	19 c0       	rjmp	.+50     	; 0x4c <__bad_interrupt>
+  1a:	18 c0       	rjmp	.+48     	; 0x4c <__bad_interrupt>
+  1c:	17 c0       	rjmp	.+46     	; 0x4c <__bad_interrupt>
+  1e:	16 c0       	rjmp	.+44     	; 0x4c <__bad_interrupt>
+  20:	15 c0       	rjmp	.+42     	; 0x4c <__bad_interrupt>
+  22:	14 c0       	rjmp	.+40     	; 0x4c <__bad_interrupt>
+  24:	13 c0       	rjmp	.+38     	; 0x4c <__bad_interrupt>
+
+00000026 <__ctors_end>:
+  26:	11 24       	eor	r1, r1
+  28:	1f be       	out	0x3f, r1	; 63
+  2a:	cf e5       	ldi	r28, 0x5F	; 95
+  2c:	d4 e0       	ldi	r29, 0x04	; 4
+  2e:	de bf       	out	0x3e, r29	; 62
+  30:	cd bf       	out	0x3d, r28	; 61
+
+00000032 <__do_copy_data>:
+  32:	10 e0       	ldi	r17, 0x00	; 0
+  34:	a0 e6       	ldi	r26, 0x60	; 96
+  36:	b0 e0       	ldi	r27, 0x00	; 0
+  38:	e6 e9       	ldi	r30, 0x96	; 150
+  3a:	f1 e0       	ldi	r31, 0x01	; 1
+  3c:	02 c0       	rjmp	.+4      	; 0x42 <__SREG__+0x3>
+  3e:	05 90       	lpm	r0, Z+
+  40:	0d 92       	st	X+, r0
+  42:	ac 36       	cpi	r26, 0x6C	; 108
+  44:	b1 07       	cpc	r27, r17
+  46:	d9 f7       	brne	.-10     	; 0x3e <__SP_H__>
+  48:	94 d0       	rcall	.+296    	; 0x172 <main>
+  4a:	a3 c0       	rjmp	.+326    	; 0x192 <_exit>
+
+0000004c <__bad_interrupt>:
+  4c:	d9 cf       	rjmp	.-78     	; 0x0 <__vectors>
+
+0000004e <_LCD_OutNibble>:
+  4e:	80 ff       	sbrs	r24, 0
+  50:	02 c0       	rjmp	.+4      	; 0x56 <_LCD_OutNibble+0x8>
+  52:	92 9a       	sbi	0x12, 2	; 18
+  54:	01 c0       	rjmp	.+2      	; 0x58 <_LCD_OutNibble+0xa>
+  56:	92 98       	cbi	0x12, 2	; 18
+  58:	81 ff       	sbrs	r24, 1
+  5a:	02 c0       	rjmp	.+4      	; 0x60 <_LCD_OutNibble+0x12>
+  5c:	93 9a       	sbi	0x12, 3	; 18
+  5e:	01 c0       	rjmp	.+2      	; 0x62 <_LCD_OutNibble+0x14>
+  60:	93 98       	cbi	0x12, 3	; 18
+  62:	82 ff       	sbrs	r24, 2
+  64:	02 c0       	rjmp	.+4      	; 0x6a <_LCD_OutNibble+0x1c>
+  66:	94 9a       	sbi	0x12, 4	; 18
+  68:	01 c0       	rjmp	.+2      	; 0x6c <_LCD_OutNibble+0x1e>
+  6a:	94 98       	cbi	0x12, 4	; 18
+  6c:	83 ff       	sbrs	r24, 3
+  6e:	02 c0       	rjmp	.+4      	; 0x74 <_LCD_OutNibble+0x26>
+  70:	95 9a       	sbi	0x12, 5	; 18
+  72:	08 95       	ret
+  74:	95 98       	cbi	0x12, 5	; 18
+  76:	08 95       	ret
+
+00000078 <_LCD_Write>:
+  78:	1f 93       	push	r17
+  7a:	18 2f       	mov	r17, r24
+  7c:	91 9a       	sbi	0x12, 1	; 18
+  7e:	82 95       	swap	r24
+  80:	8f 70       	andi	r24, 0x0F	; 15
+  82:	e5 df       	rcall	.-54     	; 0x4e <_LCD_OutNibble>
+  84:	91 98       	cbi	0x12, 1	; 18
+  86:	91 9a       	sbi	0x12, 1	; 18
+  88:	81 2f       	mov	r24, r17
+  8a:	e1 df       	rcall	.-62     	; 0x4e <_LCD_OutNibble>
+  8c:	91 98       	cbi	0x12, 1	; 18
+  8e:	80 e1       	ldi	r24, 0x10	; 16
+  90:	8a 95       	dec	r24
+  92:	f1 f7       	brne	.-4      	; 0x90 <_LCD_Write+0x18>
+  94:	00 c0       	rjmp	.+0      	; 0x96 <_LCD_Write+0x1e>
+  96:	1f 91       	pop	r17
+  98:	08 95       	ret
+
+0000009a <LCD_WriteCommand>:
+  9a:	90 98       	cbi	0x12, 0	; 18
+  9c:	ed df       	rcall	.-38     	; 0x78 <_LCD_Write>
+  9e:	08 95       	ret
+
+000000a0 <LCD_WriteData>:
+  a0:	90 9a       	sbi	0x12, 0	; 18
+  a2:	ea df       	rcall	.-44     	; 0x78 <_LCD_Write>
+  a4:	08 95       	ret
+
+000000a6 <LCD_WriteText>:
+  a6:	ef 92       	push	r14
+  a8:	ff 92       	push	r15
+  aa:	cf 93       	push	r28
+  ac:	df 93       	push	r29
+  ae:	e8 2e       	mov	r14, r24
+  b0:	e7 01       	movw	r28, r14
+  b2:	7e 01       	movw	r14, r28
+  b4:	f9 2e       	mov	r15, r25
+  b6:	e7 01       	movw	r28, r14
+  b8:	01 c0       	rjmp	.+2      	; 0xbc <LCD_WriteText+0x16>
+  ba:	f2 df       	rcall	.-28     	; 0xa0 <LCD_WriteData>
+  bc:	89 91       	ld	r24, Y+
+  be:	88 23       	and	r24, r24
+  c0:	e1 f7       	brne	.-8      	; 0xba <LCD_WriteText+0x14>
+  c2:	df 91       	pop	r29
+  c4:	cf 91       	pop	r28
+  c6:	ff 90       	pop	r15
+  c8:	ef 90       	pop	r14
+  ca:	08 95       	ret
+
+000000cc <LCD_GoTo>:
+  cc:	62 95       	swap	r22
+  ce:	66 0f       	add	r22, r22
+  d0:	66 0f       	add	r22, r22
+  d2:	60 7c       	andi	r22, 0xC0	; 192
+  d4:	68 0f       	add	r22, r24
+  d6:	86 2f       	mov	r24, r22
+  d8:	80 68       	ori	r24, 0x80	; 128
+  da:	df df       	rcall	.-66     	; 0x9a <LCD_WriteCommand>
+  dc:	08 95       	ret
+
+000000de <LCD_Clear>:
+  de:	81 e0       	ldi	r24, 0x01	; 1
+  e0:	dc df       	rcall	.-72     	; 0x9a <LCD_WriteCommand>
+  e2:	83 ef       	ldi	r24, 0xF3	; 243
+  e4:	91 e0       	ldi	r25, 0x01	; 1
+  e6:	01 97       	sbiw	r24, 0x01	; 1
+  e8:	f1 f7       	brne	.-4      	; 0xe6 <LCD_Clear+0x8>
+  ea:	00 c0       	rjmp	.+0      	; 0xec <LCD_Clear+0xe>
+  ec:	00 00       	nop
+  ee:	08 95       	ret
+
+000000f0 <LCD_Home>:
+  f0:	82 e0       	ldi	r24, 0x02	; 2
+  f2:	d3 df       	rcall	.-90     	; 0x9a <LCD_WriteCommand>
+  f4:	83 ef       	ldi	r24, 0xF3	; 243
+  f6:	91 e0       	ldi	r25, 0x01	; 1
+  f8:	01 97       	sbiw	r24, 0x01	; 1
+  fa:	f1 f7       	brne	.-4      	; 0xf8 <LCD_Home+0x8>
+  fc:	00 c0       	rjmp	.+0      	; 0xfe <LCD_Home+0xe>
+  fe:	00 00       	nop
+ 100:	08 95       	ret
+
+00000102 <LCD_Initalize>:
+ 102:	1f 93       	push	r17
+ 104:	8a 9a       	sbi	0x11, 2	; 17
+ 106:	8b 9a       	sbi	0x11, 3	; 17
+ 108:	8c 9a       	sbi	0x11, 4	; 17
+ 10a:	8d 9a       	sbi	0x11, 5	; 17
+ 10c:	89 9a       	sbi	0x11, 1	; 17
+ 10e:	88 9a       	sbi	0x11, 0	; 17
+ 110:	85 ea       	ldi	r24, 0xA5	; 165
+ 112:	9e e0       	ldi	r25, 0x0E	; 14
+ 114:	01 97       	sbiw	r24, 0x01	; 1
+ 116:	f1 f7       	brne	.-4      	; 0x114 <LCD_Initalize+0x12>
+ 118:	00 c0       	rjmp	.+0      	; 0x11a <LCD_Initalize+0x18>
+ 11a:	00 00       	nop
+ 11c:	90 98       	cbi	0x12, 0	; 18
+ 11e:	91 98       	cbi	0x12, 1	; 18
+ 120:	13 e0       	ldi	r17, 0x03	; 3
+ 122:	91 9a       	sbi	0x12, 1	; 18
+ 124:	83 e0       	ldi	r24, 0x03	; 3
+ 126:	93 df       	rcall	.-218    	; 0x4e <_LCD_OutNibble>
+ 128:	91 98       	cbi	0x12, 1	; 18
+ 12a:	81 ee       	ldi	r24, 0xE1	; 225
+ 12c:	94 e0       	ldi	r25, 0x04	; 4
+ 12e:	01 97       	sbiw	r24, 0x01	; 1
+ 130:	f1 f7       	brne	.-4      	; 0x12e <LCD_Initalize+0x2c>
+ 132:	00 c0       	rjmp	.+0      	; 0x134 <LCD_Initalize+0x32>
+ 134:	00 00       	nop
+ 136:	11 50       	subi	r17, 0x01	; 1
+ 138:	a1 f7       	brne	.-24     	; 0x122 <LCD_Initalize+0x20>
+ 13a:	91 9a       	sbi	0x12, 1	; 18
+ 13c:	82 e0       	ldi	r24, 0x02	; 2
+ 13e:	87 df       	rcall	.-242    	; 0x4e <_LCD_OutNibble>
+ 140:	91 98       	cbi	0x12, 1	; 18
+ 142:	89 ef       	ldi	r24, 0xF9	; 249
+ 144:	90 e0       	ldi	r25, 0x00	; 0
+ 146:	01 97       	sbiw	r24, 0x01	; 1
+ 148:	f1 f7       	brne	.-4      	; 0x146 <LCD_Initalize+0x44>
+ 14a:	00 c0       	rjmp	.+0      	; 0x14c <LCD_Initalize+0x4a>
+ 14c:	00 00       	nop
+ 14e:	88 e2       	ldi	r24, 0x28	; 40
+ 150:	a4 df       	rcall	.-184    	; 0x9a <LCD_WriteCommand>
+ 152:	88 e0       	ldi	r24, 0x08	; 8
+ 154:	a2 df       	rcall	.-188    	; 0x9a <LCD_WriteCommand>
+ 156:	81 e0       	ldi	r24, 0x01	; 1
+ 158:	a0 df       	rcall	.-192    	; 0x9a <LCD_WriteCommand>
+ 15a:	83 ef       	ldi	r24, 0xF3	; 243
+ 15c:	91 e0       	ldi	r25, 0x01	; 1
+ 15e:	01 97       	sbiw	r24, 0x01	; 1
+ 160:	f1 f7       	brne	.-4      	; 0x15e <LCD_Initalize+0x5c>
+ 162:	00 c0       	rjmp	.+0      	; 0x164 <LCD_Initalize+0x62>
+ 164:	00 00       	nop
+ 166:	86 e0       	ldi	r24, 0x06	; 6
+ 168:	98 df       	rcall	.-208    	; 0x9a <LCD_WriteCommand>
+ 16a:	8c e0       	ldi	r24, 0x0C	; 12
+ 16c:	96 df       	rcall	.-212    	; 0x9a <LCD_WriteCommand>
+ 16e:	1f 91       	pop	r17
+ 170:	08 95       	ret
+
+00000172 <main>:
+ 172:	c7 df       	rcall	.-114    	; 0x102 <LCD_Initalize>
+ 174:	bd df       	rcall	.-134    	; 0xf0 <LCD_Home>
+ 176:	b3 df       	rcall	.-154    	; 0xde <LCD_Clear>
+ 178:	80 e0       	ldi	r24, 0x00	; 0
+ 17a:	60 e0       	ldi	r22, 0x00	; 0
+ 17c:	a7 df       	rcall	.-178    	; 0xcc <LCD_GoTo>
+ 17e:	80 e6       	ldi	r24, 0x60	; 96
+ 180:	90 e0       	ldi	r25, 0x00	; 0
+ 182:	91 df       	rcall	.-222    	; 0xa6 <LCD_WriteText>
+ 184:	80 e0       	ldi	r24, 0x00	; 0
+ 186:	61 e0       	ldi	r22, 0x01	; 1
+ 188:	a1 df       	rcall	.-190    	; 0xcc <LCD_GoTo>
+ 18a:	88 e6       	ldi	r24, 0x68	; 104
+ 18c:	90 e0       	ldi	r25, 0x00	; 0
+ 18e:	8b df       	rcall	.-234    	; 0xa6 <LCD_WriteText>
+ 190:	ff cf       	rjmp	.-2      	; 0x190 <main+0x1e>
+
+00000192 <_exit>:
+ 192:	f8 94       	cli
+
+00000194 <__stop_program>:
+ 194:	ff cf       	rjmp	.-2      	; 0x194 <__stop_program>

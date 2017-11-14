@@ -1,0 +1,20 @@
+
+**** Build of configuration Release for project porty_we_wy ****
+
+make all 
+Building file: ../przyk2.c
+Invoking: AVR Compiler
+avr-gcc -Wall -Os -fpack-struct -fshort-enums -std=gnu99 -funsigned-char -funsigned-bitfields -mmcu=atmega16 -DF_CPU=8000000UL -MMD -MP -MF"przyk2.d" -MT"przyk2.d" -c -o "przyk2.o" "../przyk2.c"
+../przyk2.c:14:1: warning: "F_CPU" redefined
+<command-line>: warning: this is the location of the previous definition
+Finished building: ../przyk2.c
+ 
+Building target: porty_we_wy.elf
+Invoking: AVR C Linker
+avr-gcc -Wl,-Map,porty_we_wy.map -mmcu=atmega16 -o "porty_we_wy.elf"  ./main1.o ./przyk2.o   
+./przyk2.o: In function `main':
+przyk2.c:(.text+0x0): multiple definition of `main'
+./main1.o:main1.c:(.text+0x0): first defined here
+make: *** [porty_we_wy.elf] Error 1
+
+**** Build Finished ****

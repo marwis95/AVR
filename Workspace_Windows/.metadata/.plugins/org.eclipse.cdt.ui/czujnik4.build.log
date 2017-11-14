@@ -1,0 +1,21 @@
+
+**** Build of configuration Release for project czujnik4 ****
+
+make all 
+Invoking: Print Size
+avr-size --format=avr --mcu=atmega16 czujnik4.elf
+AVR Memory Usage
+----------------
+Device: atmega16
+
+Program:    2124 bytes (13.0% Full)
+(.text + .data + .bootloader)
+
+Data:        262 bytes (25.6% Full)
+(.data + .bss + .noinit)
+
+
+Finished building: sizedummy
+ 
+
+**** Build Finished ****
